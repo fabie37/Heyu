@@ -18,7 +18,7 @@ notifications["1234"].put("Hey")
 # GET: notification
 # Description: Checks database for a notification from heyu friend
 # expected body: 
-#           "code" : <int>      Identify heyu code
+#           "code" : <str>      Identify heyu code
 @server.get("/notification")
 def get_notification():
     if request.is_json:
@@ -36,7 +36,7 @@ def get_notification():
 # POST: notification
 # Description: Puts a notification into database
 # expected body: 
-#           "code" : <int>      Identify heyu code
+#           "code" : <str>      Identify heyu code
 @server.post("/notification")
 def post_notification():
     if request.is_json:

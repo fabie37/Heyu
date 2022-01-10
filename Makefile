@@ -7,11 +7,8 @@ test_heyu:
 test_cli:
 	source $(DIR)/env/bin/activate && python3 $(DIR)/Client/client.py
 
-test_api_server:
-    source $(DIR)/env/bin/activate && export FLASK_ENV=development && export FLASK_APP=server && cd ${DIR}/API && flask run --host=0.0.0.0 --port 6000
-
 test_api:
-	source $(DIR)/env/bin/activate && export FLASK_ENV=development && export FLASK_APP=server && cd ${DIR}/API && flask run --port 6000
+	source $(DIR)/env/bin/activate && export FLASK_ENV=development && export FLASK_APP=server && cd ${DIR}/API && flask run --host=0.0.0.0 --port 6000
 	
 install: venv
 	source $(DIR)/env/bin/activate && pip install -r requirements.txt

@@ -14,6 +14,7 @@ then
     rm -rf "$dir/$project_name"
 else
     echo "Dir:$dir is clean."
+fi
 
 echo "Downloading latest project..."
 cd $dir

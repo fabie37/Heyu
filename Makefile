@@ -1,3 +1,4 @@
+SHELL := /bin/bash
 DIR := ${CURDIR}
 
 test_heyu:

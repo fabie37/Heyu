@@ -19,7 +19,8 @@ fi
 echo "Downloading latest project..."
 cd $dir
 git clone $git_url
-cd $project_name
+cd $dir/$project_name
+make install
 pm2 delete $project_name
 pm2 start "make test_api" --name "$project_name"
 echo "Alright! Go to $domain:6000 to test it out."

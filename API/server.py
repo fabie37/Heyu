@@ -21,17 +21,13 @@ notifications["1234"].put("Hey")
 #           "code" : <str>      Identify heyu code
 @server.get("/notification/<code>")
 def get_notification(code):
-    if request.is_json:
-        req = request.get_json()
-        if "code" in req:
-            code = req["code"]
-            if code in notifications: 
-                if notifications[code].empty():
-                    return {"notification": False}, 201
-                return {"notification": notifications[code].get()}, 203
-            return {"error":" Bad Request"}, 400
+    if code:
+        if code in notifications: 
+            if notifications[code].empty():
+                return {"notification": False}, 201
+            return {"notification": notifications[code].get()}, 203
         return {"error":" Bad Request"}, 400
-    return {"error":"Request must be json"}, 415
+    return {"error":" Bad Request"}, 400
 
 # POST: notification
 # Description: Puts a notification into database

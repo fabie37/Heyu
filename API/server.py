@@ -17,10 +17,10 @@ notifications["1234"].put("Hey")
 
 # GET: notification
 # Description: Checks database for a notification from heyu friend
-# expected body: 
+# expected param: 
 #           "code" : <str>      Identify heyu code
-@server.get("/notification")
-def get_notification():
+@server.get("/notification/<code>")
+def get_notification(code):
     if request.is_json:
         req = request.get_json()
         if "code" in req:
